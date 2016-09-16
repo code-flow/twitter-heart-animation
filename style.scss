@@ -28,15 +28,26 @@ $ph-heart-color-before: #b4b4b4;
 $ph-heart-animation-time: 1s;
 $ph-heart-width: $ph-width*.8;
 $ph-circle-color: #cc8ef5;
-$ph-circle-group-spacing: (
-        g1: translate($ph-width*.225, $ph-width*.225-40),
-        g2: translate($ph-width*.225+70, $ph-width*.225-20),
-        g3: translate($ph-width*.225+30, $ph-width*.225+25),
-        g4: translate($ph-width*.225+30, $ph-width*.225+30),
-        g5: translate($ph-width*.225-40, $ph-width*.225+20),
-        g6: translate($ph-width*.225-40, $ph-width*.225),
-        g7: translate($ph-width*.225-30, $ph-width*.225-50),
+$ph-circle-mini-1: (
+        g1: translate(330px, 45px), // 1
+        g2: translate(575px, 150px), // 2
+        g3: translate(650px, 380px), // 3
+        g4: translate(500px, 610px), // 4
+        g5: translate(250px, 630px), // 5
+        g6: translate(60px, 435px), // 6
+        g7: translate(70px, 230px), // 7
 );
+
+$ph-circle-mini-2: (
+        g1: translate(60px, -120px),
+        g2: translate(250px, -50px),
+        g3: translate(300px, 90px),
+        g4: translate(205px, 260px),
+        g5: translate(55px, 300px),
+        g6: translate(-100px, 182px),
+        g7: translate(-120px, 45px),
+);
+
 $ph-circle-group-colors: (
         g1: #9fc7fa,
         g2: #cc8ef5,
@@ -47,12 +58,31 @@ $ph-circle-group-colors: (
         g7: #9bd8c3,
 );
 
+@mixin animation($animation) {
+  -moz-animation: $animation;
+  -o-animation: $animation;
+  -webkit-animation: $animation;
+  animation: $animation;
+}
+
 @mixin transform($transforms) {
   -moz-transform: $transforms;
   -o-transform: $transforms;
   -ms-transform: $transforms;
   -webkit-transform: $transforms;
   transform: $transforms;
+}
+
+@mixin transform-origin($transform-origin) {
+  -moz-transform-origin: $transform-origin;
+  -o-transform-origin: $transform-origin;
+  -ms-transform-origin: $transform-origin;
+  -webkit-transform-origin: $transform-origin;
+  transform-origin: $transform-origin;
+
+  /* experimental in Firefox */
+  //-moz-transform-box: fill-box;
+  //transform-box: fill-box;
 }
 
 .twitter-heart {
@@ -63,58 +93,45 @@ $ph-circle-group-colors: (
   .heart {
     cursor: pointer;
     fill: $ph-heart-color-before;
-    transform-origin: center center;
+    @include transform-origin(center center);
     @include transform(scale($ph-heart-width/$ph-width));
-  }
-
-  .circle-group {
-    opacity: 0;
-    transform-origin: center center;
-    @include transform(translate($ph-width*.225, $ph-width*.225));
   }
 
   .circle {
     @include transform(scale(.1, .1));
-    transform-origin: center center;
+    @include transform-origin(center center);
     stroke-width: 0;
     fill: transparent;
   }
 
   .mini-circle {
-    transform-origin: center center;
+    opacity: 0;
+    @include transform-origin(0 0);
   }
 
   .animated {
     .heart {
-      -webkit-animation: animation-twitter-heart-heart $ph-heart-animation-time ease-out forwards;
-      animation: animation-twitter-heart-heart $ph-heart-animation-time ease-out forwards;
+      @include animation(animation-twitter-heart-heart $ph-heart-animation-time ease-out forwards);
     }
 
     .circle {
-      -webkit-animation: animation-twitter-heart-circle $ph-heart-animation-time linear forwards;;
-      animation: animation-twitter-heart-circle $ph-heart-animation-time linear forwards;
-    }
-
-    .circle-group .mini-circle:first-child {
-      -webkit-animation: animation-twitter-heart-circle-mini-inner $ph-heart-animation-time linear forwards;;
-      animation: animation-twitter-heart-circle-mini-inner $ph-heart-animation-time linear forwards;
-    }
-
-    .circle-group .mini-circle:last-child {
-      -webkit-animation: animation-twitter-heart-circle-mini-outer $ph-heart-animation-time linear forwards;;
-      animation: animation-twitter-heart-circle-mini-outer $ph-heart-animation-time linear forwards;
+      @include animation(animation-twitter-heart-circle $ph-heart-animation-time linear forwards);
     }
 
     $i: 7;
     @while $i > 0 {
 
-      .circle-group-#{$i} {
-        -webkit-animation: animation-twitter-heart-circle-group-#{$i} $ph-heart-animation-time ease-out forwards;;
-        animation: animation-twitter-heart-circle-group-#{$i} $ph-heart-animation-time ease-out forwards;
-        fill: map-get($ph-circle-group-colors, 'g#{$i}')
+      .mini-circle-#{$i}-1 {
+        fill: map-get($ph-circle-group-colors, 'g#{$i}');
+        @include animation(animation-twitter-heart-circle-mini-#{$i}-t1 $ph-heart-animation-time ease-out forwards);
       }
 
-      @keyframes animation-twitter-heart-circle-group-#{$i} {
+      .mini-circle-#{$i}-2 {
+        fill: map-get($ph-circle-group-colors, 'g#{$i}');
+        @include animation(animation-twitter-heart-circle-mini-#{$i}-t2 $ph-heart-animation-time ease-out forwards);
+      }
+
+      @keyframes animation-twitter-heart-circle-mini-#{$i}-t1 {
 
         13.25% {
           opacity: 0;
@@ -124,9 +141,36 @@ $ph-circle-group-colors: (
           opacity: 1;
         }
 
-        100% {
+        60% {
+        }
+
+        80% {
           opacity: 1;
-          @include transform(map-get($ph-circle-group-spacing, 'g#{$i}') rotate(-65deg));
+        }
+
+        100% {
+          opacity: 0;
+          @include transform(map-get($ph-circle-mini-1, 'g#{$i}') scale(.3, .3));
+        }
+      }
+
+      @keyframes animation-twitter-heart-circle-mini-#{$i}-t2 {
+
+        13.25% {
+          opacity: 0;
+        }
+
+        13.3% {
+          opacity: 1;
+        }
+
+        80% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          @include transform(map-get($ph-circle-mini-2, 'g#{$i}') scale(.8, .8));
         }
       }
 
@@ -190,38 +234,11 @@ $ph-circle-group-colors: (
     stroke-width: 0;
   }
 
+  //100% {
+  //  @include transform(scale(1, 1));
+  //  stroke-width: 10;
+  //  stroke: $ph-circle-color;
+  //}
+
 }
 
-@keyframes animation-twitter-heart-circle-mini-inner {
-  13.3% {
-    @include transform(scale(1, 1));
-  }
-
-  60% {
-    @include transform(scale(.3, .3));
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    @include transform(scale(.1, .1));
-    opacity: 0;
-  }
-}
-
-@keyframes animation-twitter-heart-circle-mini-outer {
-  13.3% {
-    @include transform(scale(1, 1));
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    @include transform(scale(.4, .4));
-    opacity: 0;
-  }
-}

@@ -31,44 +31,30 @@ SOFTWARE.
         <path class="heart"
               d="M499.407,401.143c-52.418-122.4-201.417-93.844-202.4,48.223-0.543,78.025,70.95,107.191,118.551,138.383C461.717,618,494.568,659.381,499.716,677c4.407-17.26,41-59.812,83.724-90.094,46.719-33.111,119.094-60.361,118.551-138.385C701.005,306.1,549.414,283.622,499.407,401.143Z"/>
         <circle class="circle" cx="500" cy="500" r="380"/>
-        <g class="circle-group circle-group-1">
-            <circle class="mini-circle mini-circle-1-1" cx="372.438" cy="71" r="30"/>
-            <circle class="mini-circle mini-circle-1-2" cx="453.562" cy="92" r="30"/>
-        </g>
-        <g class="circle-group circle-group-2">
-            <circle class="mini-circle mini-circle-2-1" cx="660" cy="165" r="30"/>
-            <circle class="mini-circle mini-circle-2-2" cx="686" cy="244" r="30"/>
-        </g>
-        <g class="circle-group circle-group-3">
-            <circle class="mini-circle mini-circle-3-1" cx="758" cy="452" r="29.985"/>
-            <circle class="mini-circle mini-circle-3-2" cx="716" cy="525" r="29.985"/>
-        </g>
-        <g class="circle-group circle-group-4">
-            <circle class="mini-circle mini-circle-4-1" cx="598" cy="703" r="30.047"/>
-            <circle class="mini-circle mini-circle-4-2" cx="515" cy="719" r="30.047"/>
-        </g>
-        <g class="circle-group circle-group-5">
-            <circle class="mini-circle mini-circle-5-1" cx="302" cy="738" r="30.125"/>
-            <circle class="mini-circle mini-circle-5-2" cx="238" cy="682" r="30.125"/>
-        </g>
-        <g class="circle-group circle-group-6">
-            <circle class="mini-circle mini-circle-6-1" cx="90" cy="528" r="30.094"/>
-            <circle class="mini-circle mini-circle-6-2" cx="90" cy="445" r="30.094"/>
-        </g>
-        <g class="circle-group circle-group-7">
-            <circle class="mini-circle mini-circle-7-1" cx="100" cy="258" r="30.094"/>
-            <circle class="mini-circle mini-circle-7-2" cx="165" cy="195" r="30.094"/>
+        <g class="mini-circles">
+            <circle class="mini-circle mini-circle-1-1" cx="462" cy="161" r="30"/>
+            <circle class="mini-circle mini-circle-1-2" cx="543" cy="182" r="30"/>
+            <circle class="mini-circle mini-circle-2-1" cx="750" cy="255" r="30"/>
+            <circle class="mini-circle mini-circle-2-2" cx="776" cy="334" r="30"/>
+            <circle class="mini-circle mini-circle-3-1" cx="848" cy="542" r="30"/>
+            <circle class="mini-circle mini-circle-3-2" cx="806" cy="615" r="30"/>
+            <circle class="mini-circle mini-circle-4-1" cx="688" cy="793" r="30"/>
+            <circle class="mini-circle mini-circle-4-2" cx="605" cy="809" r="30"/>
+            <circle class="mini-circle mini-circle-5-1" cx="392" cy="828" r="30"/>
+            <circle class="mini-circle mini-circle-5-2" cx="328" cy="772" r="30"/>
+            <circle class="mini-circle mini-circle-6-1" cx="180" cy="618" r="30"/>
+            <circle class="mini-circle mini-circle-6-2" cx="180" cy="535" r="30"/>
+            <circle class="mini-circle mini-circle-7-1" cx="190" cy="348" r="30"/>
+            <circle class="mini-circle mini-circle-7-2" cx="255" cy="285" r="30"/>
         </g>
     </g>
     <a xlink:href="https://florian-simeth.de" xlink:target="_blank">
         <g transform="scale(.1) translate(8700,9000)" fill="#d9d9d9">
             <rect x="0" y="0" width="1400" height="1000" fill="#fff"/>
-            <path data-name="Klammern"
-                  d="M395.5 941.7a22.1 22.1 0 0 0 0-31.8L123.7 638.1 395.5 366.4a22.1 22.1 0 0 0 0-31.8l-34.6-34.6a22.1 22.1 0 0 0-31.8 0L6.7 622.2a22.1 22.1 0 0 0 0 31.8L329.1 976.3a22.1 22.1 0 0 0 31.8 0ZM1269.3 654a22.1 22.1 0 0 0 0-31.8L946.9 300a22.1 22.1 0 0 0-31.8 0l-34.6 34.6a22.1 22.1 0 0 0 0 31.8L1152.3 638.1 880.5 909.9a22.1 22.1 0 0 0 0 31.8l34.6 34.6a22.1 22.1 0 0 0 31.8 0Z"
+            <path d="M395.5 941.7a22.1 22.1 0 0 0 0-31.8L123.7 638.1 395.5 366.4a22.1 22.1 0 0 0 0-31.8l-34.6-34.6a22.1 22.1 0 0 0-31.8 0L6.7 622.2a22.1 22.1 0 0 0 0 31.8L329.1 976.3a22.1 22.1 0 0 0 31.8 0ZM1269.3 654a22.1 22.1 0 0 0 0-31.8L946.9 300a22.1 22.1 0 0 0-31.8 0l-34.6 34.6a22.1 22.1 0 0 0 0 31.8L1152.3 638.1 880.5 909.9a22.1 22.1 0 0 0 0 31.8l34.6 34.6a22.1 22.1 0 0 0 31.8 0Z"
                   transform="translate(0 -154)"/>
             <rect x="490" y="447" width="295" height="71" rx="10" ry="10"/>
-            <path data-name="f"
-                  d="M773 247.6q-29.7 32.6-35.9 66.2L667.8 710.2 625.7 962.2q-11.3 67.2-61.4 109t-121.3 50.8l-8-55.3q28.3-5.7 58.1-38.3 29.7-32.6 35.9-66.2l69.3-396.3 42.1-252q11.3-67.1 61.4-109t121.3-50.8l8 55.3Q802.7 215 773 247.6Z"
+            <path d="M773 247.6q-29.7 32.6-35.9 66.2L667.8 710.2 625.7 962.2q-11.3 67.2-61.4 109t-121.3 50.8l-8-55.3q28.3-5.7 58.1-38.3 29.7-32.6 35.9-66.2l69.3-396.3 42.1-252q11.3-67.1 61.4-109t121.3-50.8l8 55.3Q802.7 215 773 247.6Z"
                   transform="translate(0 -154)"/>
         </g>
     </a>
